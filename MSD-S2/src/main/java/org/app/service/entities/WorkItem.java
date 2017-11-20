@@ -24,10 +24,32 @@ public class WorkItem extends EntityBase{
 	private List<Comment> comments;
 	@ManyToOne
 	private Sprint sprint;
+	@OneToMany(mappedBy = "workItem")
+	private List<WorkItemPropertyValue> workItemPropertyValues;
 	
 	public WorkItem() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public List<WorkItemPropertyValue> getWorkItemPropertyValues() {
+		return workItemPropertyValues;
+	}
+	public void setWorkItemPropertyValues(List<WorkItemPropertyValue> workItemPropertyValues) {
+		this.workItemPropertyValues = workItemPropertyValues;
+	}
+	public WorkItem(String title, BoardState state, String description, User user, WorkItemTemplate template,
+			List<WorkItemLabel> labels, List<Comment> comments, Sprint sprint,
+			List<WorkItemPropertyValue> workItemPropertyValues) {
+		super();
+		this.title = title;
+		this.state = state;
+		this.description = description;
+		this.user = user;
+		this.template = template;
+		this.labels = labels;
+		this.comments = comments;
+		this.sprint = sprint;
+		this.workItemPropertyValues = workItemPropertyValues;
 	}
 	public WorkItem(Integer id, Integer version, String createdByUser, String updatedByUser, Date dateCreated,
 			Date dateUpdated, Boolean isDeleted) {

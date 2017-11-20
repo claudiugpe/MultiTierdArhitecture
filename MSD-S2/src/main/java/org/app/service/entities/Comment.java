@@ -7,6 +7,16 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment extends EntityBase {
+	public Comment(String description, User user, WorkItem workItem) {
+		super();
+		this.description = description;
+		this.user = user;
+		this.workItem = workItem;
+	}
+
+	private String description;
+	@ManyToOne
+	private User user;
 	@ManyToOne
 	private WorkItem workItem;
 
@@ -37,6 +47,22 @@ public class Comment extends EntityBase {
 
 	public void setWorkItem(WorkItem workItem) {
 		this.workItem = workItem;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }
