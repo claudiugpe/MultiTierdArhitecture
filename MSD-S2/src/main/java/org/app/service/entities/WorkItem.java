@@ -9,17 +9,22 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class WorkItem extends EntityBase{
+	
 	private String title;
 	@ManyToOne
 	private BoardState state;
 	private String description;
+	@ManyToOne
 	private User user;
+	@ManyToOne
 	private WorkItemTemplate template; 
 	@OneToMany(mappedBy = "workItem")
 	private List<WorkItemLabel> labels;
+	@OneToMany
 	private List<Comment> comments;
 	@ManyToOne
 	private Sprint sprint;
+	
 	public WorkItem() {
 		super();
 		// TODO Auto-generated constructor stub

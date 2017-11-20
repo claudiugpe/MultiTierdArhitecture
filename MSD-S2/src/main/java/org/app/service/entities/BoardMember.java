@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class BoardMember extends EntityBase{
 	
+	@ManyToOne
 	private User user;
 	@ManyToOne
 	private Board board;

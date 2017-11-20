@@ -2,6 +2,18 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="MSD">
 		<jta-data-source>java:/ORCL</jta-data-source>
+		<class>org.app.service.entities.Board</class>
+		<class>org.app.service.entities.BoardMember</class>
+		<class>org.app.service.entities.BoardState</class>
+		<class>org.app.service.entities.BoardTemplate</class>
+		<class>org.app.service.entities.Comment</class>
+		<class>org.app.service.entities.EntityBase</class>
+		<class>org.app.service.entities.Label</class>
+		<class>org.app.service.entities.Sprint</class>
+		<class>org.app.service.entities.User</class>
+		<class>org.app.service.entities.WorkItem</class>
+		<class>org.app.service.entities.WorkItemLabel</class>
+		<class>org.app.service.entities.WorkItemTemplate</class>
 		
       <properties>
          <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>  -->
