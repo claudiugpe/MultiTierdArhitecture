@@ -6,14 +6,21 @@
 		<class>org.app.service.entities.BoardMember</class>
 		<class>org.app.service.entities.BoardState</class>
 		<class>org.app.service.entities.BoardTemplate</class>
+		<class>org.app.service.entities.Claim</class>
 		<class>org.app.service.entities.Comment</class>
 		<class>org.app.service.entities.EntityBase</class>
 		<class>org.app.service.entities.Label</class>
+		<class>org.app.service.entities.PropertyValue</class>
 		<class>org.app.service.entities.Sprint</class>
 		<class>org.app.service.entities.User</class>
+		<class>org.app.service.entities.UserClaim</class>
 		<class>org.app.service.entities.WorkItem</class>
 		<class>org.app.service.entities.WorkItemLabel</class>
+		<class>org.app.service.entities.WorkItemProperty</class>
+		<class>org.app.service.entities.WorkItemPropertyValue</class>
 		<class>org.app.service.entities.WorkItemTemplate</class>
+		<class>org.app.service.entities.WorkItemType</class>
+		
 		
       <properties>
          <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>  -->
