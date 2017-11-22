@@ -3,11 +3,13 @@ package org.app.service.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Claim extends EntityBase {
-	@OneToOne(mappedBy = "claim")
+	@OneToOne
 	private UserClaim userClaim;
 	
 	private String description;

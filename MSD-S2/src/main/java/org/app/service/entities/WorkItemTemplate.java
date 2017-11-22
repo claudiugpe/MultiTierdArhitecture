@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -16,7 +18,7 @@ public class WorkItemTemplate extends EntityBase{
 		this.workItemType = workItemType;
 	}
 
-	@OneToMany(mappedBy = "template")
+	@OneToMany
 	private List<WorkItem> workItems;
 	@OneToMany
 	private List<WorkItemProperty> properties;

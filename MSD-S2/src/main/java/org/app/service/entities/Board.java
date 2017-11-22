@@ -3,19 +3,21 @@ package org.app.service.entities;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Board extends EntityBase{
 	private String title;
-	@OneToMany(mappedBy = "board")
+	@OneToMany()
 	private List<Sprint> sprints;
-	@OneToMany
+	@OneToMany()
 	private List<BoardMember> members;
-	@OneToOne(mappedBy = "board")
+	@OneToOne
 	private BoardTemplate template;
-	@OneToMany(mappedBy = "board")
+	@OneToMany()
 	private List<Label> labels;
 	
 	private Boolean isClosed;

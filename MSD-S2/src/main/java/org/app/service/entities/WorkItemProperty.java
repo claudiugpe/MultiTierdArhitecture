@@ -3,6 +3,8 @@ package org.app.service.entities;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,7 +17,7 @@ public class WorkItemProperty extends EntityBase{
 	}
 	private String caption;
 	private String propertyType;
-	@OneToMany(mappedBy = "property")
+	@OneToMany()
 	private List<PropertyValue> propertyValues;
 	public WorkItemProperty() {
 		super();

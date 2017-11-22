@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
 public class WorkItemType extends EntityBase {

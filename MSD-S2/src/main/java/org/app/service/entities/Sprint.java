@@ -3,6 +3,8 @@ package org.app.service.entities;
 import java.util.List;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -15,7 +17,7 @@ public class Sprint extends EntityBase{
 	private Date endDate;
 	@ManyToOne
 	private Board board;
-	@OneToMany
+	@OneToMany()
 	private List<WorkItem> workItems;
 	
 	

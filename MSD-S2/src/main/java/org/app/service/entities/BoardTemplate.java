@@ -3,16 +3,18 @@ package org.app.service.entities;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class BoardTemplate extends EntityBase{
 	
-	@OneToOne()
+	@OneToOne
 	private Board board;
 	
-	@OneToMany
+	@OneToMany()
 	private List<BoardState> boardStates;
 	
 	public BoardTemplate() {

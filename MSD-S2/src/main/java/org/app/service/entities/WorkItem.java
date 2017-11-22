@@ -4,10 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
+
 public class WorkItem extends EntityBase{
 	
 	private String title;
@@ -18,13 +21,13 @@ public class WorkItem extends EntityBase{
 	private User user;
 	@ManyToOne
 	private WorkItemTemplate template; 
-	@OneToMany(mappedBy = "workItem")
+	@OneToMany
 	private List<WorkItemLabel> labels;
 	@OneToMany
 	private List<Comment> comments;
 	@ManyToOne
 	private Sprint sprint;
-	@OneToMany(mappedBy = "workItem")
+	@OneToMany
 	private List<WorkItemPropertyValue> workItemPropertyValues;
 	
 	public WorkItem() {

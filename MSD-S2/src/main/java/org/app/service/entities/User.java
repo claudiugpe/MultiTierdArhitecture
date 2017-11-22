@@ -4,9 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
+
 public class User extends EntityBase {
 	public User(String name, String password, List<UserClaim> userClaims) {
 		super();

@@ -3,6 +3,8 @@ package org.app.service.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -10,7 +12,7 @@ import javax.persistence.OneToOne;
 public class UserClaim extends EntityBase {
 	@ManyToOne
 	private User user;
-	@OneToOne()
+	@OneToOne
 	private Claim claim;
 	public User getUser() {
 		return user;
