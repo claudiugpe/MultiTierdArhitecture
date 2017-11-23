@@ -64,10 +64,12 @@ public class TestBoardDataServiceEJBArq {
 	@Test
 	public void test_AddBoard() {
 		logger.info("DEBUG: Junit TESTING ADD BOARD...");
+		
+		int initialSize = service.toCollection().size();
 		service.add(new Board(null, 1, "test", "test", new Date(), new Date(), false));
 	
 		Collection<Board> boards = service.toCollection();
-		assertTrue("Fail to add board!", boards.size() == 1);
+		assertTrue("Fail to add board!", boards.size() == initialSize + 1);
 	}
 	
 	@Test
