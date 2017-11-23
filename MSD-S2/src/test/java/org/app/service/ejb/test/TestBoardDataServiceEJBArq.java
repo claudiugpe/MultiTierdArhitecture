@@ -50,6 +50,7 @@ public class TestBoardDataServiceEJBArq {
 		logger.info("DEBUG: Junit TESTING ...");
 		String response = service.getMessage();
 		assertNotNull("Data Service failed!", response);
+		assertTrue("fail get message", response == "Board data service success");
 		logger.info("DEBUG: EJB Response ..." + response);
 	}
 	
@@ -63,8 +64,8 @@ public class TestBoardDataServiceEJBArq {
 	@Test
 	public void test_AddBoard() {
 		logger.info("DEBUG: Junit TESTING ADD BOARD...");
-		service.add(new Board(1, 1, "test", "test", new Date(), new Date(), false));
-		
+		service.add(new Board(null, 1, "test", "test", new Date(), new Date(), false));
+	
 		Collection<Board> boards = service.toCollection();
 		assertTrue("Fail to add board!", boards.size() == 1);
 	}

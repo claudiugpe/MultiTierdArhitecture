@@ -2,6 +2,7 @@ package org.app.service.entities;
 
 import static javax.persistence.GenerationType.AUTO;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -14,7 +15,11 @@ import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 @MappedSuperclass
-public abstract class EntityBase {
+public abstract class EntityBase implements Serializable{
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2522363024346186231L;
 		@Id
 		@GeneratedValue(strategy = AUTO)
 		protected Integer id;
