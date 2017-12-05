@@ -10,6 +10,10 @@ import javax.persistence.ManyToOne;
 @Entity
 public class BoardMember extends EntityBase{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2500384259600959349L;
 	@ManyToOne
 	private User user;
 	@ManyToOne

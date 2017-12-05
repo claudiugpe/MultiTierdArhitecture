@@ -9,6 +9,10 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class PropertyValue extends EntityBase {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2784972318877952113L;
 	public PropertyValue() {
 		super();
 		// TODO Auto-generated constructor stub

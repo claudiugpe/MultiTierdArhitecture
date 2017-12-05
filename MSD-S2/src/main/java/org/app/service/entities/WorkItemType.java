@@ -9,6 +9,10 @@ import javax.persistence.InheritanceType;
 
 @Entity
 public class WorkItemType extends EntityBase {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8214281714771346952L;
 	public WorkItemType(String caption, Color color) {
 		super();
 		this.caption = caption;

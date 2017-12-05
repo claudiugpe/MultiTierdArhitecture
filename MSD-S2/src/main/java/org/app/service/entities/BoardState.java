@@ -9,6 +9,10 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class BoardState extends EntityBase{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4779925834118990763L;
 	private String caption;
 	private String index;
 	@ManyToOne

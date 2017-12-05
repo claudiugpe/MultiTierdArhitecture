@@ -9,6 +9,11 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Claim extends EntityBase {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8642228410711167734L;
+
 	@OneToOne
 	private UserClaim userClaim;
 	

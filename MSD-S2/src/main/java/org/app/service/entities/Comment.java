@@ -9,11 +9,17 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment extends EntityBase {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1275628858408003946L;
+
 	public Comment(String description, User user, WorkItem workItem) {
 		super();
 		this.description = description;
 		this.user = user;
 		this.workItem = workItem;
+		this.date = new Date();
 	}
 
 	private String description;
@@ -21,6 +27,15 @@ public class Comment extends EntityBase {
 	private User user;
 	@ManyToOne
 	private WorkItem workItem;
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	private Date date;
 
 	public Comment() {
 		super();

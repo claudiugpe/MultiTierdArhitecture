@@ -5,11 +5,16 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Board extends EntityBase{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2434566723419755609L;
 	private String title;
 	@OneToMany()
 	private List<Sprint> sprints;

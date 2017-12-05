@@ -8,6 +8,10 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class WorkItemLabel extends EntityBase{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2868170089607623518L;
 	@ManyToOne
 	private Label label;
 	@ManyToOne

@@ -9,6 +9,10 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class WorkItemProperty extends EntityBase{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2113342210944345680L;
 	public WorkItemProperty(String caption, String propertyType, List<PropertyValue> propertyValues) {
 		super();
 		this.caption = caption;
@@ -17,7 +21,7 @@ public class WorkItemProperty extends EntityBase{
 	}
 	private String caption;
 	private String propertyType;
-	@OneToMany()
+	@OneToMany() 
 	private List<PropertyValue> propertyValues;
 	public WorkItemProperty() {
 		super();

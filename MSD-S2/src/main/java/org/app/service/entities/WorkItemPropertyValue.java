@@ -9,38 +9,34 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class WorkItemPropertyValue extends EntityBase {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5581159029058299692L;
 	@ManyToOne
-	private WorkItemProperty workItemProperty;
+	private PropertyValue value;
 	@ManyToOne
 	private WorkItem workItem;
-	private String value;
-	public WorkItemPropertyValue(WorkItemProperty workItemProperty, WorkItem workItem, String value) {
+	public WorkItemPropertyValue(PropertyValue property, WorkItem workItem) {
 		super();
-		this.workItemProperty = workItemProperty;
+		this.value = property;
 		this.workItem = workItem;
-		this.value = value;
 	}
 	public WorkItemPropertyValue() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public WorkItemProperty getWorkItemProperty() {
-		return workItemProperty;
+	public PropertyValue getWorkItemProperty() {
+		return value;
 	}
-	public void setWorkItemProperty(WorkItemProperty workItemProperty) {
-		this.workItemProperty = workItemProperty;
+	public void setWorkItemProperty(PropertyValue workItemProperty) {
+		this.value = workItemProperty;
 	}
 	public WorkItem getWorkItem() {
 		return workItem;
 	}
 	public void setWorkItem(WorkItem workItem) {
 		this.workItem = workItem;
-	}
-	public String getValue() {
-		return value;
-	}
-	public void setValue(String value) {
-		this.value = value;
 	}
 	public WorkItemPropertyValue(Integer id, Integer version, String createdByUser, String updatedByUser,
 			Date dateCreated, Date dateUpdated, Boolean isDeleted) {

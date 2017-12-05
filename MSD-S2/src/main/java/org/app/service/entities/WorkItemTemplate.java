@@ -11,7 +11,12 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class WorkItemTemplate extends EntityBase{
-	public WorkItemTemplate(List<WorkItem> workItems, List<WorkItemProperty> properties, WorkItemType workItemType) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 621241099648480182L;
+
+	public WorkItemTemplate(List<WorkItem> workItems, List<WorkItemTemplateProperty> properties, WorkItemType workItemType) {
 		super();
 		this.workItems = workItems;
 		this.properties = properties;
@@ -21,15 +26,15 @@ public class WorkItemTemplate extends EntityBase{
 	@OneToMany
 	private List<WorkItem> workItems;
 	@OneToMany
-	private List<WorkItemProperty> properties;
+	private List<WorkItemTemplateProperty> properties;
 	@ManyToOne
 	private WorkItemType workItemType;
 
-	public List<WorkItemProperty> getProperties() {
+	public List<WorkItemTemplateProperty> getProperties() {
 		return properties;
 	}
 
-	public void setProperties(List<WorkItemProperty> properties) {
+	public void setProperties(List<WorkItemTemplateProperty> properties) {
 		this.properties = properties;
 	}
 

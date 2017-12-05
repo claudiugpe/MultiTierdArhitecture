@@ -2,17 +2,27 @@ package org.app.service.entities;
 
 import java.awt.Color;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Label extends EntityBase{
-	private String name;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8737084417586103526L;
+	
+	private String caption;
 	private Color color;
 	@ManyToOne
 	private Board board;
+	@OneToMany(mappedBy = "label")
+	private List<WorkItemLabel> workItems;
 	
 	public Label() {
 		super();
@@ -27,17 +37,12 @@ public class Label extends EntityBase{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
-	public Label(String name, Color color, Board board) {
+	public Label(String name, Color color, Board board, List<WorkItemLabel> workItems) {
 		super();
-		this.name = name;
+		this.caption = name;
 		this.color = color;
 		this.board = board;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
+		this.workItems = workItems;
 	}
 	public Color getColor() {
 		return color;
@@ -50,5 +55,17 @@ public class Label extends EntityBase{
 	}
 	public void setBoard(Board board) {
 		this.board = board;
+	}	
+	public String getCaption() {
+		return caption;
+	}
+	public void setCaption(String caption) {
+		this.caption = caption;
+	}
+	public List<WorkItemLabel> getWorkItems() {
+		return workItems;
+	}
+	public void setWorkItems(List<WorkItemLabel> workItems) {
+		this.workItems = workItems;
 	}
 }

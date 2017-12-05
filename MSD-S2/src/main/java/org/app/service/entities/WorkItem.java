@@ -13,6 +13,10 @@ import javax.persistence.OneToMany;
 
 public class WorkItem extends EntityBase{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1304678691271880734L;
 	private String title;
 	@ManyToOne
 	private BoardState state;
@@ -29,6 +33,8 @@ public class WorkItem extends EntityBase{
 	private Sprint sprint;
 	@OneToMany
 	private List<WorkItemPropertyValue> workItemPropertyValues;
+	@OneToMany(mappedBy = "workItem")
+	private List<History> history;
 	
 	public WorkItem() {
 		super();
@@ -125,5 +131,8 @@ public class WorkItem extends EntityBase{
 	}
 	public void setSprint(Sprint sprint) {
 		this.sprint = sprint;
+	}
+	public List<History> getHistory() {
+		return history;
 	}
 }

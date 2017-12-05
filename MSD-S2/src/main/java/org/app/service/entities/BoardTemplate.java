@@ -11,8 +11,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class BoardTemplate extends EntityBase{
 	
-	@OneToOne
-	private Board board;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5998805785067314233L;
+	
+	@OneToMany(mappedBy = "template")
+	private List<Board> boards;
 	
 	@OneToMany()
 	private List<BoardState> boardStates;
@@ -30,16 +35,16 @@ public class BoardTemplate extends EntityBase{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
-	public BoardTemplate(Board board, List<BoardState> boardStates) {
+	public BoardTemplate(List<Board> boards, List<BoardState> boardStates) {
 		super();
-		this.board = board;
+		this.boards = boards;
 		this.boardStates = boardStates;
 	}
-	public Board getBoard() {
-		return board;
+	public List<Board> getBoards() {
+		return boards;
 	}
-	public void setBoard(Board board) {
-		this.board = board;
+	public void setBoards(List<Board> boards) {
+		this.boards = boards;
 	}
 	public List<BoardState> getBoardStates() {
 		return boardStates;

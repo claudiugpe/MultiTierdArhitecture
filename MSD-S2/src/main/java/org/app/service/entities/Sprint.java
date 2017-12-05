@@ -10,6 +10,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Sprint extends EntityBase{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4727711581711821573L;
+	
 	private Boolean isCanceled;
 	private String title;
 	private String description;

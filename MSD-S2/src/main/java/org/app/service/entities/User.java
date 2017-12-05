@@ -11,6 +11,11 @@ import javax.persistence.OneToMany;
 @Entity
 
 public class User extends EntityBase {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8967510465337080017L;
+
 	public User(String name, String password, List<UserClaim> userClaims) {
 		super();
 		Name = name;
