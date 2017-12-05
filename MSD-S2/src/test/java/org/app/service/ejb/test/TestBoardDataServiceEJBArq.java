@@ -1,7 +1,9 @@
 package org.app.service.ejb.test;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.ejb.EJB;
@@ -17,12 +19,15 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestBoardDataServiceEJBArq {
 	private static Logger logger = Logger.getLogger(TestBoardDataServiceEJBArq.class.getName());
 	
@@ -89,12 +94,13 @@ public class TestBoardDataServiceEJBArq {
 	@Test
 	public void test_GetBoardById() {
 		logger.info("DEBUG: Junit TESTING GET BOARD BY ID...");
+		Collection<Board> boards = service.toCollection();
 		
-		service.add(new Board(1, 1, "test", "test", new Date(), new Date(), false));		
-		Board board = service.getById(1);
+		List<Object> list = new ArrayList<Object>(boards);
+		Board testBoard = (Board)list.get(0);
 		
-		assertTrue("Fail to get board by id!", board == null);
-
-		service.remove(board);
+		Board board = service.getById(testBoard.getId());
+		
+		assertTrue("Fail get by id...", board.getId() == testBoard.getId());
 	}
 }
