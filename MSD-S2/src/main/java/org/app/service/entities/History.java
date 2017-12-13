@@ -18,7 +18,7 @@ public class History extends EntityBase{
 	 */
 	private static final long serialVersionUID = 8747931848354314015L;
 	
-	public History(Date dateModified, String newValue, String oldValue, User user, WorkItemPropertyValue property,
+	public History(Date dateModified, String newValue, String oldValue, UserApp user, WorkItemPropertyValue property,
 			WorkItem workItem) {
 		super();
 		this.dateModified = dateModified;
@@ -50,10 +50,10 @@ public class History extends EntityBase{
 		this.oldValue = oldValue;
 	}
 	@XmlElement(name="user")
-	public User getUser() {
+	public UserApp getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserApp user) {
 		this.user = user;
 	}
 	@XmlElement
@@ -74,7 +74,7 @@ public class History extends EntityBase{
 	private String newValue;
 	private String oldValue;
 	@ManyToOne
-	private User user;
+	private UserApp user;
 	@ManyToOne
 	private WorkItemPropertyValue property;
 	@ManyToOne

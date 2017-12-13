@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.app.patterns.EntityRepositoryBase;
 import org.app.service.entities.Claim;
-import org.app.service.entities.User;
+import org.app.service.entities.UserApp;
 
 @Path("claims")	
 @Stateless @LocalBean

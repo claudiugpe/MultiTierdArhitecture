@@ -14,7 +14,7 @@
 		<class>org.app.service.entities.LikedWorkItem</class>
 		<class>org.app.service.entities.PropertyValue</class>
 		<class>org.app.service.entities.Sprint</class>
-		<class>org.app.service.entities.User</class>
+		<class>org.app.service.entities.UserApp</class>
 		<class>org.app.service.entities.UserClaim</class>
 		<class>org.app.service.entities.WorkItem</class>
 		<class>org.app.service.entities.WorkItemLabel</class>

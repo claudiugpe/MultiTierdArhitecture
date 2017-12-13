@@ -21,7 +21,7 @@ public class BoardMember extends EntityBase{
 	 */
 	private static final long serialVersionUID = -2500384259600959349L;
 	@ManyToOne
-	private User user;
+	private UserApp user;
 	@ManyToOne
 	private Board board;
 	
@@ -38,16 +38,16 @@ public class BoardMember extends EntityBase{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
-	public BoardMember(User user, Board board) {
+	public BoardMember(UserApp user, Board board) {
 		super();
 		this.user = user;
 		this.board = board;
 	}
 	@XmlElement
-	public User getUser() {
+	public UserApp getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserApp user) {
 		this.user = user;
 	}
 	@XmlElement

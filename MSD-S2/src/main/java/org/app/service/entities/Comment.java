@@ -19,7 +19,7 @@ public class Comment extends EntityBase {
 	 */
 	private static final long serialVersionUID = 1275628858408003946L;
 
-	public Comment(String description, User user, WorkItem workItem) {
+	public Comment(String description, UserApp user, WorkItem workItem) {
 		super();
 		this.description = description;
 		this.user = user;
@@ -29,7 +29,7 @@ public class Comment extends EntityBase {
 
 	private String description;
 	@ManyToOne
-	private User user;
+	private UserApp user;
 	@ManyToOne
 	private WorkItem workItem;
 	public Date getDate() {
@@ -79,11 +79,11 @@ public class Comment extends EntityBase {
 		this.description = description;
 	}
 	@XmlElement(name="user")
-	public User getUser() {
+	public UserApp getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserApp user) {
 		this.user = user;
 	}
 	

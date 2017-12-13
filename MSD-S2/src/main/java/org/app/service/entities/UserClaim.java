@@ -20,14 +20,14 @@ public class UserClaim extends EntityBase {
 	 */
 	private static final long serialVersionUID = 5980642949650894766L;
 	@ManyToOne
-	private User user;
+	private UserApp user;
 	@OneToOne
 	private Claim claim;
 	@XmlElement
-	public User getUser() {
+	public UserApp getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserApp user) {
 		this.user = user;
 	}
 	@XmlElement
@@ -37,7 +37,7 @@ public class UserClaim extends EntityBase {
 	public void setClaim(Claim claim) {
 		this.claim = claim;
 	}
-	public UserClaim(User user, Claim claim) {
+	public UserClaim(UserApp user, Claim claim) {
 		super();
 		this.user = user;
 		this.claim = claim;

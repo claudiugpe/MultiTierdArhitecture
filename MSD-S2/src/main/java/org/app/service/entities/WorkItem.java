@@ -28,7 +28,7 @@ public class WorkItem extends EntityBase{
 	private BoardState state;
 	private String description;
 	@ManyToOne
-	private User user;
+	private UserApp user;
 	@ManyToOne
 	private WorkItemTemplate template; 
 	@OneToMany
@@ -52,7 +52,7 @@ public class WorkItem extends EntityBase{
 	public void setWorkItemPropertyValues(List<WorkItemPropertyValue> workItemPropertyValues) {
 		this.workItemPropertyValues = workItemPropertyValues;
 	}
-	public WorkItem(String title, BoardState state, String description, User user, WorkItemTemplate template,
+	public WorkItem(String title, BoardState state, String description, UserApp user, WorkItemTemplate template,
 			List<WorkItemLabel> labels, List<Comment> comments, Sprint sprint,
 			List<WorkItemPropertyValue> workItemPropertyValues) {
 		super();
@@ -84,7 +84,7 @@ public class WorkItem extends EntityBase{
 		this.labels = labels;
 	}
 	
-	public WorkItem(String title, BoardState state, String description, User user, WorkItemTemplate template,
+	public WorkItem(String title, BoardState state, String description, UserApp user, WorkItemTemplate template,
 			List<WorkItemLabel> labels, List<Comment> comments, Sprint sprint) {
 		super();
 		this.title = title;
@@ -118,10 +118,10 @@ public class WorkItem extends EntityBase{
 		this.description = description;
 	}
 	@XmlElement
-	public User getUser() {
+	public UserApp getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserApp user) {
 		this.user = user;
 	}
 	@XmlElement

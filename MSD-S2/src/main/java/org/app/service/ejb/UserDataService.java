@@ -3,9 +3,9 @@ package org.app.service.ejb;
 import javax.ejb.Remote;
 
 import org.app.patterns.EntityRepository;
-import org.app.service.entities.User;
+import org.app.service.entities.UserApp;
 
 @Remote
-public interface UserDataService extends EntityRepository<User>{
+public interface UserDataService extends EntityRepository<UserApp>{
 	String getMessage();
 }

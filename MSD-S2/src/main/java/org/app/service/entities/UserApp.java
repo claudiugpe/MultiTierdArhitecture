@@ -16,13 +16,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="user")
 @XmlAccessorType(XmlAccessType.NONE)
 @Entity
-public class User extends EntityBase {
+public class UserApp extends EntityBase {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8967510465337080017L;
 
-	public User(String name, String password, List<UserClaim> userClaims) {
+
+
+	public UserApp(Integer id, Integer version, String createdByUser, String updatedByUser, Date dateCreated,
+			Date dateUpdated, Boolean isDeleted) {
+		super(id, version, createdByUser, updatedByUser, dateCreated, dateUpdated, isDeleted);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public UserApp(String name, String password, List<UserClaim> userClaims) {
 		super();
 		Name = name;
 		this.password = password;
@@ -36,18 +44,14 @@ public class User extends EntityBase {
 	@OneToMany(mappedBy = "user")
 	private List<UserClaim> userClaims;
 
-	public User() {
+	public UserApp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(Integer id, Integer version, String createdByUser, String updatedByUser, Date dateCreated,
-			Date dateUpdated, Boolean isDeleted) {
-		super(id, version, createdByUser, updatedByUser, dateCreated, dateUpdated, isDeleted);
-		// TODO Auto-generated constructor stub
-	}
 
-	public User(Integer id) {
+
+	public UserApp(Integer id) {
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
@@ -76,4 +80,7 @@ public class User extends EntityBase {
 	public void setUserClaims(List<UserClaim> userClaims) {
 		this.userClaims = userClaims;
 	}
+
+
+	
 }
