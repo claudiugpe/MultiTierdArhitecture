@@ -7,9 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="user")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
-
 public class User extends EntityBase {
 	/**
 	 * 
@@ -45,7 +51,7 @@ public class User extends EntityBase {
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
-
+	@XmlElement
 	public String getName() {
 		return Name;
 	}
@@ -53,7 +59,7 @@ public class User extends EntityBase {
 	public void setName(String name) {
 		Name = name;
 	}
-
+	@XmlElement
 	public String getPassword() {
 		return password;
 	}
@@ -61,7 +67,8 @@ public class User extends EntityBase {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	@XmlElementWrapper(name="userclaims")
+	@XmlElement(name="userclaim")
 	public List<UserClaim> getUserClaims() {
 		return userClaims;
 	}

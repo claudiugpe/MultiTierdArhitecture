@@ -71,7 +71,7 @@ public class TestBoardDataServiceEJBArq {
 		logger.info("DEBUG: Junit TESTING ADD BOARD...");
 		
 		int initialSize = service.toCollection().size();
-		service.add(new Board(null, 1, "test", "test", new Date(), new Date(), false));
+		service.add(new Board(null, 1, "board2", "board2", new Date(), new Date(), false));
 	
 		Collection<Board> boards = service.toCollection();
 		assertTrue("Fail to add board!", boards.size() == initialSize + 1);

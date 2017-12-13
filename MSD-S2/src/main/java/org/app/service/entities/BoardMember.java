@@ -6,7 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="boardMember")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class BoardMember extends EntityBase{
 	
@@ -37,12 +43,14 @@ public class BoardMember extends EntityBase{
 		this.user = user;
 		this.board = board;
 	}
+	@XmlElement
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
+	@XmlElement
 	public Board getBoard() {
 		return board;
 	}

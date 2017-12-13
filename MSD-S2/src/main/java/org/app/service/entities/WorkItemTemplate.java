@@ -8,7 +8,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="workItemTemplate")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class WorkItemTemplate extends EntityBase{
 	/**
@@ -30,6 +37,8 @@ public class WorkItemTemplate extends EntityBase{
 	@ManyToOne
 	private WorkItemType workItemType;
 
+	@XmlElementWrapper(name="workItemProperties")
+	@XmlElement(name="workItemProperty")
 	public List<WorkItemTemplateProperty> getProperties() {
 		return properties;
 	}
@@ -37,7 +46,7 @@ public class WorkItemTemplate extends EntityBase{
 	public void setProperties(List<WorkItemTemplateProperty> properties) {
 		this.properties = properties;
 	}
-
+	@XmlElement
 	public WorkItemType getWorkItemType() {
 		return workItemType;
 	}
@@ -66,7 +75,8 @@ public class WorkItemTemplate extends EntityBase{
 		super();
 		this.workItems = workItems;
 	}
-
+	@XmlElementWrapper(name="workItems")
+	@XmlElement(name="workItem")
 	public List<WorkItem> getWorkItems() {
 		return workItems;
 	}

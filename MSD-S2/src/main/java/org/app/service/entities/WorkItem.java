@@ -8,9 +8,15 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="workItem")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
-
 public class WorkItem extends EntityBase{
 	
 	/**
@@ -90,48 +96,59 @@ public class WorkItem extends EntityBase{
 		this.comments = comments;
 		this.sprint = sprint;
 	}
+	@XmlElement
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	@XmlElement
 	public BoardState getState() {
 		return state;
 	}
 	public void setState(BoardState state) {
 		this.state = state;
 	}
+	@XmlElement
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@XmlElement
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
+	@XmlElement
 	public WorkItemTemplate getTemplate() {
 		return template;
 	}
 	public void setTemplate(WorkItemTemplate template) {
 		this.template = template;
 	}
+	
+	@XmlElementWrapper(name="comments")
+	@XmlElement(name="comment")
 	public List<Comment> getComments() {
 		return comments;
 	}
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+	@XmlElement
 	public Sprint getSprint() {
 		return sprint;
 	}
 	public void setSprint(Sprint sprint) {
 		this.sprint = sprint;
 	}
+	@XmlElementWrapper(name="histories")
+	@XmlElement(name="history")
 	public List<History> getHistory() {
 		return history;
 	}

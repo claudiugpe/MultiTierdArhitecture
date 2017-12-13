@@ -7,7 +7,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="sprint")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class Sprint extends EntityBase{
 	/**
@@ -62,42 +68,50 @@ public class Sprint extends EntityBase{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
+	@XmlElement
 	public Boolean getIsCanceled() {
 		return isCanceled;
 	}
 	public void setIsCanceled(Boolean isCanceled) {
 		this.isCanceled = isCanceled;
 	}
+	@XmlElement
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	@XmlElement
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@XmlElement
 	public Date getStartDate() {
 		return startDate;
 	}
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
+	@XmlElement
 	public Date getEndDate() {
 		return endDate;
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	@XmlElement
 	public Board getBoard() {
 		return board;
 	}
 	public void setBoard(Board board) {
 		this.board = board;
 	}
+	@XmlElementWrapper(name="workItems")
+	@XmlElement(name="workItem")
 	public List<WorkItem> getWorkItems() {
 		return workItems;
 	}

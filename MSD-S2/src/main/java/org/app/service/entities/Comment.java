@@ -6,7 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="comment")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class Comment extends EntityBase {
 	/**
@@ -57,7 +62,7 @@ public class Comment extends EntityBase {
 		super();
 		this.workItem = workItem;
 	}
-
+	@XmlElement(name="workItem")
 	public WorkItem getWorkItem() {
 		return workItem;
 	}
@@ -65,7 +70,7 @@ public class Comment extends EntityBase {
 	public void setWorkItem(WorkItem workItem) {
 		this.workItem = workItem;
 	}
-
+	@XmlElement
 	public String getDescription() {
 		return description;
 	}
@@ -73,7 +78,7 @@ public class Comment extends EntityBase {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	@XmlElement(name="user")
 	public User getUser() {
 		return user;
 	}

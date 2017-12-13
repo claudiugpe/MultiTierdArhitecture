@@ -6,7 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="propertyValue")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class PropertyValue extends EntityBase {
 	/**
@@ -29,12 +34,14 @@ public class PropertyValue extends EntityBase {
 	@ManyToOne
 	private WorkItemProperty property;
 	private String value;
+	@XmlElement
 	public WorkItemProperty getProperty() {
 		return property;
 	}
 	public void setProperty(WorkItemProperty property) {
 		this.property = property;
 	}
+	@XmlElement
 	public String getValue() {
 		return value;
 	}

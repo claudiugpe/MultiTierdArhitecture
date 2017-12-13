@@ -5,7 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="workitemlabel")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class WorkItemLabel extends EntityBase{
 	/**
@@ -35,12 +41,14 @@ public class WorkItemLabel extends EntityBase{
 		this.label = label;
 		this.workItem = workItem;
 	}
+	@XmlElement
 	public Label getLabel() {
 		return label;
 	}
 	public void setLabel(Label label) {
 		this.label = label;
 	}
+	@XmlElement
 	public WorkItem getWorkItem() {
 		return workItem;
 	}

@@ -4,7 +4,13 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="workItemTemplateProperty")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class WorkItemTemplateProperty extends EntityBase{
 
@@ -31,12 +37,14 @@ public class WorkItemTemplateProperty extends EntityBase{
 		this.template = template;
 		this.property = property;
 	}
+	@XmlElement
 	public WorkItemTemplate getTemplate() {
 		return template;
 	}
 	public void setTemplate(WorkItemTemplate template) {
 		this.template = template;
 	}
+	@XmlElement
 	public WorkItemProperty getProperty() {
 		return property;
 	}

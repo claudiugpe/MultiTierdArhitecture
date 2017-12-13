@@ -3,11 +3,15 @@ package org.app.service.entities;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="boardTemplate")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class BoardTemplate extends EntityBase{
 	
@@ -40,12 +44,16 @@ public class BoardTemplate extends EntityBase{
 		this.boards = boards;
 		this.boardStates = boardStates;
 	}
+	@XmlElementWrapper(name="boards")
+	@XmlElement(name="board")
 	public List<Board> getBoards() {
 		return boards;
 	}
 	public void setBoards(List<Board> boards) {
 		this.boards = boards;
 	}
+	@XmlElementWrapper(name="boardStates")
+	@XmlElement(name="boardState")
 	public List<BoardState> getBoardStates() {
 		return boardStates;
 	}

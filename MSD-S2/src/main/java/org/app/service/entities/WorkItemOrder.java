@@ -4,7 +4,13 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="workitemorder")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class WorkItemOrder extends EntityBase{
 
@@ -30,12 +36,14 @@ public class WorkItemOrder extends EntityBase{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
+	@XmlElement
 	public WorkItem getWorkItem() {
 		return workItem;
 	}
 	public void setWorkItem(WorkItem workItem) {
 		this.workItem = workItem;
 	}
+	@XmlElement
 	public WorkItem getCompleteAfterWorkItem() {
 		return completeAfterWorkItem;
 	}

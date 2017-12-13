@@ -7,7 +7,12 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="userClaim")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class UserClaim extends EntityBase {
 	/**
@@ -18,12 +23,14 @@ public class UserClaim extends EntityBase {
 	private User user;
 	@OneToOne
 	private Claim claim;
+	@XmlElement
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
+	@XmlElement
 	public Claim getClaim() {
 		return claim;
 	}

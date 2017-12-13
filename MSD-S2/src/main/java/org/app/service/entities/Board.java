@@ -67,8 +67,8 @@ public class Board extends EntityBase{
 		this.title = title;
 	}
 	
-	//@XmlElementWrapper(name="sprints")
-	//@XmlElement(name="sprint")
+	@XmlElementWrapper(name="sprints")
+	@XmlElement(name="sprint")
 	public List<Sprint> getSprints() {
 		return sprints;
 	}
@@ -76,8 +76,8 @@ public class Board extends EntityBase{
 		this.sprints = sprints;
 	}
 	
-	//@XmlElementWrapper(name="members")
-	//@XmlElement(name="member")
+	@XmlElementWrapper(name="members")
+	@XmlElement(name="member")
 	public List<BoardMember> getMembers() {
 		return members;
 	}
@@ -85,7 +85,7 @@ public class Board extends EntityBase{
 		this.members = members;
 	}
 	
-	//@XmlElement
+	@XmlElement
 	public BoardTemplate getTemplate() {
 		return template;
 	}

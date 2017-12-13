@@ -13,6 +13,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.xml.bind.annotation.XmlElement;
 
 @MappedSuperclass
 public abstract class EntityBase implements Serializable{
@@ -42,6 +43,7 @@ public abstract class EntityBase implements Serializable{
 		public void setId(Integer id) {
 			this.id = id;
 		}
+		@XmlElement
 		public Boolean getIsDeleted() {
 			return isDeleted;
 		}
@@ -56,30 +58,35 @@ public abstract class EntityBase implements Serializable{
 			super();
 			this.id = id;
 		}
+		@XmlElement
 		public Integer getVersion() {
 			return version;
 		}
 		public void setVersion(Integer version) {
 			this.version = version;
 		}
+		@XmlElement
 		public String getCreatedByUser() {
 			return createdByUser;
 		}
 		public void setCreatedByUser(String createdByUser) {
 			this.createdByUser = createdByUser;
 		}
+		@XmlElement
 		public String getUpdatedByUser() {
 			return updatedByUser;
 		}
 		public void setUpdatedByUser(String updatedByUser) {
 			this.updatedByUser = updatedByUser;
 		}
+		@XmlElement
 		public Date getDateCreated() {
 			return dateCreated;
 		}
 		public void setDateCreated(Date dateCreated) {
 			this.dateCreated = dateCreated;
 		}
+		@XmlElement
 		public Date getDateUpdated() {
 			return dateUpdated;
 		}

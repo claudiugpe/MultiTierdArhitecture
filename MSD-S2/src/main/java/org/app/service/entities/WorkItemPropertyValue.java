@@ -6,7 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="workitempropertyvalue")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class WorkItemPropertyValue extends EntityBase {
 	/**
@@ -26,12 +32,14 @@ public class WorkItemPropertyValue extends EntityBase {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@XmlElement
 	public PropertyValue getWorkItemProperty() {
 		return value;
 	}
 	public void setWorkItemProperty(PropertyValue workItemProperty) {
 		this.value = workItemProperty;
 	}
+	@XmlElement
 	public WorkItem getWorkItem() {
 		return workItem;
 	}

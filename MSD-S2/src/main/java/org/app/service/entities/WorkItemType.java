@@ -6,7 +6,13 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="workItemType")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class WorkItemType extends EntityBase {
 	/**
@@ -33,12 +39,14 @@ public class WorkItemType extends EntityBase {
 	}
 	private String caption;
 	private Color color;
+	@XmlElement
 	public String getCaption() {
 		return caption;
 	}
 	public void setCaption(String caption) {
 		this.caption = caption;
 	}
+	@XmlElement
 	public Color getColor() {
 		return color;
 	}

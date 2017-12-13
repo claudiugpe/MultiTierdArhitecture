@@ -4,7 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="likedWorkItem")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class LikedWorkItem extends EntityBase{
 
@@ -35,12 +40,14 @@ public class LikedWorkItem extends EntityBase{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
+	@XmlElement
 	public WorkItem getParent() {
 		return parent;
 	}
 	public void setParent(WorkItem parent) {
 		this.parent = parent;
 	}
+	@XmlElement
 	public WorkItem getChild() {
 		return child;
 	}

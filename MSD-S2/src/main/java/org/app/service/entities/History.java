@@ -4,7 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="history")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class History extends EntityBase{
 
@@ -23,36 +28,42 @@ public class History extends EntityBase{
 		this.property = property;
 		this.workItem = workItem;
 	}
+	@XmlElement
 	public Date getDateModified() {
 		return dateModified;
 	}
 	public void setDateModified(Date dateModified) {
 		this.dateModified = dateModified;
 	}
+	@XmlElement
 	public String getNewValue() {
 		return newValue;
 	}
 	public void setNewValue(String newValue) {
 		this.newValue = newValue;
 	}
+	@XmlElement
 	public String getOldValue() {
 		return oldValue;
 	}
 	public void setOldValue(String oldValue) {
 		this.oldValue = oldValue;
 	}
+	@XmlElement(name="user")
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
+	@XmlElement
 	public WorkItemPropertyValue getProperty() {
 		return property;
 	}
 	public void setProperty(WorkItemPropertyValue property) {
 		this.property = property;
 	}
+	@XmlElement
 	public WorkItem getWorkItem() {
 		return workItem;
 	}

@@ -6,7 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="boardState")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class BoardState extends EntityBase{
 	/**
@@ -26,6 +32,7 @@ public class BoardState extends EntityBase{
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
+	@XmlElement
 	public BoardTemplate getBoardTemplate() {
 		return boardTemplate;
 	}
@@ -48,12 +55,14 @@ public class BoardState extends EntityBase{
 		this.caption = caption;
 		this.index = index;
 	}
+	@XmlElement
 	public String getCaption() {
 		return caption;
 	}
 	public void setCaption(String caption) {
 		this.caption = caption;
 	}
+	@XmlElement
 	public String getIndex() {
 		return index;
 	}
