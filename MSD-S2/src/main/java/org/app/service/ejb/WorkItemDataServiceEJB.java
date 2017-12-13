@@ -22,7 +22,7 @@ import org.app.patterns.EntityRepositoryBase;
 import org.app.service.entities.Claim;
 import org.app.service.entities.WorkItem;
 
-@Path("workItems")	
+@Path("workitems")	
 @Stateless @LocalBean
 public class WorkItemDataServiceEJB 
 				extends EntityRepositoryBase<WorkItem>
