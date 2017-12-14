@@ -69,6 +69,14 @@ public class BoardState extends EntityBase{
 	public void setIndex(String index) {
 		this.index = index;
 	}
-	
+
+	public static String BASE_URL = "http://localhost:8080/data/boardstates/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-boardstates");
+	}
 	
 }

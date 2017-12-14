@@ -84,5 +84,13 @@ public class WorkItemTemplate extends EntityBase{
 	public void setWorkItems(List<WorkItem> workItems) {
 		this.workItems = workItems;
 	}
-	
+
+	public static String BASE_URL = "http://localhost:8080/data/workitemtemplates/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-workitemtemplate");
+	}
 }

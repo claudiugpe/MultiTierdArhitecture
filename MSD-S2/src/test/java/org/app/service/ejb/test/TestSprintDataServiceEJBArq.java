@@ -21,8 +21,10 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
 
@@ -71,7 +73,10 @@ public class TestSprintDataServiceEJBArq  {
 		logger.info("DEBUG: Junit TESTING ADD SPRINT...");
 		
 		int initialSize = service.toCollection().size();
-		service.add(new Sprint(null, 1, "UserName1", "UserName1", new Date(), new Date(), false));
+		Sprint sprint=new Sprint(null, 1, "UserName1", "UserName1", new Date(), new Date(), false);
+		sprint.setTitle("test_sprint");
+		sprint.setDescription("sprint description");
+		service.add(sprint);
 	
 		Collection<Sprint> sprints = service.toCollection();
 		assertTrue("Failed to add new sprint!", sprints.size() == ++initialSize);
@@ -89,7 +94,7 @@ public class TestSprintDataServiceEJBArq  {
 		
 		Collection<Sprint> remainingSprints = service.toCollection();
 		
-		assertTrue("Failed to delete sprints!", !remainingSprints.size());
+		assertTrue("Failed to delete sprints!", remainingSprints.size() != 0);
 		logger.info("DEBUG: REMOVE SPRINT DONE ");
 	}
 	

@@ -53,4 +53,14 @@ public class WorkItemType extends EntityBase {
 	public void setColor(Color color) {
 		this.color = color;
 	}
+	
+
+	public static String BASE_URL = "http://localhost:8080/data/workitemtypes/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-workitemtype");
+	}
 }

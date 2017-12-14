@@ -53,4 +53,13 @@ public class PropertyValue extends EntityBase {
 		this.property = property;
 		this.value = value;
 	}
+
+	public static String BASE_URL = "http://localhost:8080/data/propertyvalues/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-propertyvalues");
+	}
 }

@@ -1,6 +1,7 @@
 package org.app.service.ejb;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -81,6 +82,12 @@ public class UserDataServiceEJB
 	@Override
 	public Collection<UserApp> toCollection() {
 		// TODO Auto-generated method stub
+		Collection<UserApp> users = super.toCollection();
+		for(UserApp u : users) {
+			u.setUserClaims(null);
+		}
+		
+		
 		return super.toCollection();
 	}
 	
@@ -90,6 +97,8 @@ public class UserDataServiceEJB
 		// TODO Auto-generated method stub
 		UserApp user = super.getById(id);
 		logger.info("***Debug REST getById ("+id+")="+user);
+		
+		user.setUserClaims(null);
 		return user;
 	}
 	

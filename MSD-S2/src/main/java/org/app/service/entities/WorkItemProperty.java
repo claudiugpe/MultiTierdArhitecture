@@ -65,4 +65,13 @@ public class WorkItemProperty extends EntityBase{
 	public void setPropertyValues(List<PropertyValue> propertyValues) {
 		this.propertyValues = propertyValues;
 	}
+
+	public static String BASE_URL = "http://localhost:8080/data/wokritemproperties/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-workitemproperty");
+	}
 }

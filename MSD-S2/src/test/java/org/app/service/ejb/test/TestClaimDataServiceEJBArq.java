@@ -20,8 +20,10 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
 
@@ -70,7 +72,7 @@ public class TestClaimDataServiceEJBArq  {
 		logger.info("DEBUG: Junit TESTING ADD CLAIM ...");
 		int initialSize = service.toCollection().size();
 		
-		service.add(new Claim(null, 1, "UserName1", "UserName1", new Date(), new Date(), 0));
+		service.add(new Claim(null, 1, "UserName1", "UserName1", new Date(), new Date(), false));
 		assertTrue("Failed to add new Claim! ", service.toCollection().size() == ++initialSize);
 		logger.info("DEBUG: ADD CLAIM DONE ");
 	}
@@ -85,7 +87,7 @@ public class TestClaimDataServiceEJBArq  {
 		}
 		
 		Collection<Claim> remainingClaims = service.toCollection();
-		assertTrue("Failed to delete claims!", !remainingClaims.size());
+		assertTrue("Failed to delete claims!", remainingClaims.size() != 0);
 		logger.info("DEBUG: DELETE CLAIM DONE ");
 	}
 	

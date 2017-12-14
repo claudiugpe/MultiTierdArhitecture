@@ -110,8 +110,8 @@ public class Sprint extends EntityBase{
 	public void setBoard(Board board) {
 		this.board = board;
 	}
-	@XmlElementWrapper(name="workItems")
-	@XmlElement(name="workItem")
+	@XmlElementWrapper(name="workitems")
+	@XmlElement(name="workitem")
 	public List<WorkItem> getWorkItems() {
 		return workItems;
 	}
@@ -119,6 +119,14 @@ public class Sprint extends EntityBase{
 		this.workItems = workItems;
 	}
 	
-	
+
+	public static String BASE_URL = "http://localhost:8080/data/sprints/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-sprint");
+	}
 	
 }

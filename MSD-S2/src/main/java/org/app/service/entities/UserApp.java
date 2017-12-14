@@ -82,5 +82,13 @@ public class UserApp extends EntityBase {
 	}
 
 
+	public static String BASE_URL = "http://localhost:8080/data/users/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-user");
+	}
 	
 }

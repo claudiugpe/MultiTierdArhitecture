@@ -57,6 +57,14 @@ public class BoardMember extends EntityBase{
 	public void setBoard(Board board) {
 		this.board = board;
 	}
-	
+
+	public static String BASE_URL = "http://localhost:8080/data/boardmembers/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-boardmembers");
+	}
 	
 }

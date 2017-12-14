@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="workItem")
+@XmlRootElement(name="workitem")
 @XmlAccessorType(XmlAccessType.NONE)
 @Entity
 public class WorkItem extends EntityBase{
@@ -152,4 +152,13 @@ public class WorkItem extends EntityBase{
 	public List<History> getHistory() {
 		return history;
 	}
+
+	public static String BASE_URL = "http://localhost:8080/data/workitems/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-workitem");
+	}	
 }

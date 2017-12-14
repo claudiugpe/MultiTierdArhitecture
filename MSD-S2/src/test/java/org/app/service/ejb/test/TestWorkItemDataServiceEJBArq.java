@@ -20,8 +20,10 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
 
@@ -70,7 +72,10 @@ public class TestWorkItemDataServiceEJBArq  {
 		logger.info("DEBUG: Junit TESTING ADD WORKITEM...");
 		
 		int initialSize = service.toCollection().size();
-		service.add(new WorkItem(null, 1, "UserName1", "UserName1", new Date(), new Date(), false));
+		
+		WorkItem workItem = new WorkItem(null, 1, "UserName1", "UserName1", new Date(), new Date(), false);
+		workItem.setTitle("Title");
+		service.add(workItem);
 	
 		Collection<WorkItem> _workitems = service.toCollection();
 		assertTrue("Failed to add workitem!", _workitems.size() == ++initialSize);
@@ -88,7 +93,7 @@ public class TestWorkItemDataServiceEJBArq  {
 		
 		Collection<WorkItem> remainingWorkItems = service.toCollection();
 		
-		assertTrue("Failed to delete workitems!", !remainingWorkItems.size());
+		assertTrue("Failed to delete workitems!", remainingWorkItems.size() != 0);
 		logger.info("DEBUG: DELETE WORKITEM DONE ");
 	}
 	

@@ -55,4 +55,13 @@ public class WorkItemPropertyValue extends EntityBase {
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
+
+	public static String BASE_URL = "http://localhost:8080/data/wokritempropertyvalues/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-workitempropertyvalue");
+	}
 }

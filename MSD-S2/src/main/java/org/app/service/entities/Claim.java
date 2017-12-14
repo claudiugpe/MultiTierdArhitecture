@@ -61,4 +61,12 @@ public class Claim extends EntityBase {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public static String BASE_URL = "http://localhost:8080/data/claims/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-claims");
+	}
 }

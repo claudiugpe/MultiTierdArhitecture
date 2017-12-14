@@ -60,6 +60,14 @@ public class BoardTemplate extends EntityBase{
 	public void setBoardStates(List<BoardState> boardStates) {
 		this.boardStates = boardStates;
 	}
-	
+
+	public static String BASE_URL = "http://localhost:8080/data/boardtemplates/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-boardtemplates");
+	}
 	
 }

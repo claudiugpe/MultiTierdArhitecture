@@ -55,4 +55,14 @@ public class WorkItemOrder extends EntityBase{
 		this.workItem = workItem;
 		this.completeAfterWorkItem = completeAfterWorkItem;
 	}
+
+	public static String BASE_URL = "http://localhost:8080/data/workitemorder/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-workitemorder");
+	}
+	
 }

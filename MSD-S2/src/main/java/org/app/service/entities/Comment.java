@@ -86,5 +86,13 @@ public class Comment extends EntityBase {
 	public void setUser(UserApp user) {
 		this.user = user;
 	}
-	
+
+	public static String BASE_URL = "http://localhost:8080/data/comments/";
+
+	@XmlElement(name = "link")
+	public AtomLink getLink() throws Exception{
+		String restUrl = BASE_URL + this.getId();
+		
+		return new AtomLink(restUrl, "get-comments");
+	}
 }
