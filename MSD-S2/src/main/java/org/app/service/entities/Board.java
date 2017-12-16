@@ -38,19 +38,10 @@ public class Board extends EntityBase{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Board(Integer id, Integer version, String createdByUser, String updatedByUser, Date dateCreated,
-			Date dateUpdated, Boolean isDeleted) {
-		super(id, version, createdByUser, updatedByUser, dateCreated, dateUpdated, isDeleted);
-		// TODO Auto-generated constructor stub
-	}
-	public Board(Integer id) {
-		super(id);
-		// TODO Auto-generated constructor stub
-	}
 	
 	public Board(String title, List<Sprint> sprints, List<BoardMember> members, BoardTemplate template,
 			List<Label> labels, Boolean isClosed) {
-		super();
+		super(null, null, null, null, new Date(), new Date(), false);
 		this.title = title;
 		this.sprints = sprints;
 		this.members = members;
