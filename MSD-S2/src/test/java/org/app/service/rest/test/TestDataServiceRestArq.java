@@ -1,4 +1,4 @@
-package org.app.service.rest.test;
+/*package org.app.service.rest.test;
 
 import java.util.logging.Logger;
 
@@ -64,4 +64,4 @@ public class TestDataServiceRestArq {
 	}
 
 }
-// https://github.com/wildfly/quickstart/tree/10.x/helloworld-rs
+// https://github.com/wildfly/quickstart/tree/10.x/helloworld-rs*/
