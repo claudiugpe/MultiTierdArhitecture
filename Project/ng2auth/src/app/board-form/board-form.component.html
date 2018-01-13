@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Create Board</h1>
+    <form (ngSubmit)="submitBoard()">
+      <div class="form-group">
+        <label for="text">Title</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title">
+      </div>
+      <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="isClosed" ng-Init="model.isClosed=false" [(ngModel)]="model.isClosed" name="isClosed">
+          <label class="form-check-label" for="isClosed">Is closed </label>
+      </div>
+      <button type="submit" class="btn btn-success">Create</button>
+    </form>
+  </div>
+  

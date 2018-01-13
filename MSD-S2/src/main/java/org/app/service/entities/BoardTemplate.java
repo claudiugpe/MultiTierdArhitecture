@@ -9,6 +9,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.FetchType.LAZY;
 
 @XmlRootElement(name="boardTemplate")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -23,7 +25,7 @@ public class BoardTemplate extends EntityBase{
 	@OneToMany(mappedBy = "template")
 	private List<Board> boards;
 	
-	@OneToMany()
+	@OneToMany(mappedBy="boardTemplate")
 	private List<BoardState> boardStates;
 	
 	public BoardTemplate() {

@@ -73,10 +73,9 @@ public class TestUserDataServiceEJBArq  {
 	public void test_AddUserData() {
 		logger.info("DEBUG: Junit TESTING ADD USER ...");
 		int initialUsers = service.toCollection().size();
+
+		UserApp user=new UserApp(null, 1, "user 1","user2", new Date(), new Date(), "User_test","user_password", false);
 		
-		UserApp user=new UserApp(null, 1, "UserName1", "UserName1", new Date(), new Date(), false);
-		user.setName("user_test");
-		user.setPassword("user_password");
 		service.add(user);
 		assertTrue("Failed to add the user!", service.toCollection().size() == ++initialUsers);
 		logger.info("DEBUG: ADD USER DONE ");

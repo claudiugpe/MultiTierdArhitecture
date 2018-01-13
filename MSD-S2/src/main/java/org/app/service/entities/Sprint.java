@@ -3,6 +3,7 @@ package org.app.service.entities;
 import java.util.List;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
@@ -12,6 +13,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import static javax.persistence.CascadeType.ALL;
 @XmlRootElement(name="sprint")
 @XmlAccessorType(XmlAccessType.NONE)
 @Entity
@@ -110,8 +112,8 @@ public class Sprint extends EntityBase{
 	public void setBoard(Board board) {
 		this.board = board;
 	}
-	@XmlElementWrapper(name="workitems")
-	@XmlElement(name="workitem")
+	//@XmlElementWrapper(name="workitems")
+	//@XmlElement(name="workitem")
 	public List<WorkItem> getWorkItems() {
 		return workItems;
 	}

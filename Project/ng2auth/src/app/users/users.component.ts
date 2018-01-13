@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user'
+import { User } from '../user';
 
 import { UsersService} from '../users.service';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';

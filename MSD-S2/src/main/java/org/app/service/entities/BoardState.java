@@ -5,11 +5,14 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Id;
+import javax.persistence.MapsId;
 
 @XmlRootElement(name="boardState")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -18,10 +21,11 @@ public class BoardState extends EntityBase{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4779925834118990763L;
+	private static final long serialVersionUID = -4779925834118990763L;
 	private String caption;
 	private String index;
 	@ManyToOne
+	@JoinColumn
 	private BoardTemplate boardTemplate;	
 	
 	public BoardState() {

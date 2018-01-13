@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement(name="user")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -25,19 +26,14 @@ public class UserApp extends EntityBase {
 
 
 	public UserApp(Integer id, Integer version, String createdByUser, String updatedByUser, Date dateCreated,
-			Date dateUpdated, Boolean isDeleted) {
+			Date dateUpdated, String name, String password,Boolean isDeleted) {
 		super(id, version, createdByUser, updatedByUser, dateCreated, dateUpdated, isDeleted);
 		// TODO Auto-generated constructor stub
-	}
-	
-	public UserApp(String name, String password, List<UserClaim> userClaims) {
-		super();
-		Name = name;
-		this.password = password;
-		this.userClaims = userClaims;
+		this.name=name;
+		this.password=password;
 	}
 
-	private String Name;
+	private String name;
 	
 	private String password;
 	
@@ -49,19 +45,24 @@ public class UserApp extends EntityBase {
 		// TODO Auto-generated constructor stub
 	}
 
-
+	public UserApp(String name, String password) {
+		super();
+		this.name = name;
+		this.password = password;
+	}
 
 	public UserApp(Integer id) {
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
+	
 	@XmlElement
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	@XmlElement
 	public String getPassword() {
@@ -71,8 +72,9 @@ public class UserApp extends EntityBase {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@XmlElementWrapper(name="userclaims")
-	@XmlElement(name="userclaim")
+	
+	//@XmlElementWrapper(name="userclaims")
+	//@XmlElement(name="userclaim")
 	public List<UserClaim> getUserClaims() {
 		return userClaims;
 	}
@@ -84,7 +86,7 @@ public class UserApp extends EntityBase {
 
 	public static String BASE_URL = "http://localhost:8080/data/users/";
 
-	@XmlElement(name = "link")
+	@XmlTransient
 	public AtomLink getLink() throws Exception{
 		String restUrl = BASE_URL + this.getId();
 		

@@ -21,7 +21,7 @@ import javax.ws.rs.core.MediaType;
 import org.app.patterns.EntityRepositoryBase;
 import org.app.service.entities.UserApp;
 
-@Path("users")	
+@Path("/users")	
 @Stateless @LocalBean
 public class UserDataServiceEJB 
 				extends EntityRepositoryBase<UserApp>
@@ -41,8 +41,8 @@ public class UserDataServiceEJB
 	}
 	
 	@POST
-	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Consumes({ MediaType.APPLICATION_JSON})
+	@Produces({ MediaType.APPLICATION_JSON})
 	public Collection<UserApp> addIntoCollection(UserApp entity) {
 		// TODO Auto-generated method stub
 		super.add(entity);

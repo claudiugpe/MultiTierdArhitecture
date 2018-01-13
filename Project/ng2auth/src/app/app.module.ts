@@ -12,7 +12,13 @@ import { WorkItemsComponent } from './work-items/work-items.component';
 import { UsersService } from './users.service';
 import { BoardsService } from './boards.service';
 import { WorkItemService } from './work-item.service';
-
+import { SprintComponent } from './sprint/sprint.component';
+import { SprintService } from './sprint.service';
+import { UserFormComponent } from './user-form/user-form.component';
+import {FormsModule} from '@angular/forms';
+import { Http } from '@angular/http/src/http';
+import { HttpHeaders } from '@angular/common/http/src/headers';
+import { BoardFormComponent } from './board-form/board-form.component';
 
 @NgModule({
   declarations: [
@@ -20,17 +26,22 @@ import { WorkItemService } from './work-item.service';
     CallbackComponent,
     UsersComponent,
     BoardsComponent,
-    WorkItemsComponent
+    WorkItemsComponent,
+    SprintComponent,
+    UserFormComponent,
+    BoardFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     UsersService,
     BoardsService,
-    WorkItemService],
+    WorkItemService,
+    SprintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

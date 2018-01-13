@@ -14,6 +14,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @MappedSuperclass
 public abstract class EntityBase implements Serializable{
@@ -43,7 +46,8 @@ public abstract class EntityBase implements Serializable{
 		public void setId(Integer id) {
 			this.id = id;
 		}
-		@XmlElement
+
+		@XmlTransient
 		public Boolean getIsDeleted() {
 			return isDeleted;
 		}
@@ -58,21 +62,21 @@ public abstract class EntityBase implements Serializable{
 			super();
 			this.id = id;
 		}
-		@XmlElement
+		@XmlTransient
 		public Integer getVersion() {
 			return version;
 		}
 		public void setVersion(Integer version) {
 			this.version = version;
 		}
-		@XmlElement
+		@XmlTransient
 		public String getCreatedByUser() {
 			return createdByUser;
 		}
 		public void setCreatedByUser(String createdByUser) {
 			this.createdByUser = createdByUser;
 		}
-		@XmlElement
+		@XmlTransient
 		public String getUpdatedByUser() {
 			return updatedByUser;
 		}
@@ -86,7 +90,7 @@ public abstract class EntityBase implements Serializable{
 		public void setDateCreated(Date dateCreated) {
 			this.dateCreated = dateCreated;
 		}
-		@XmlElement
+		@XmlTransient
 		public Date getDateUpdated() {
 			return dateUpdated;
 		}

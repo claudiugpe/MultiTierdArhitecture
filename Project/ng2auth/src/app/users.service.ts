@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 
@@ -7,8 +7,10 @@ import { catchError } from 'rxjs/operators';
 export class UsersService {
 
   private usersUrl='http://localhost:8080/MSD-S2/data/users/';
-
-  constructor(private http: HttpClient) { }
+  
+  constructor(private http: HttpClient) {
+    
+   }
 
   getUsers(){
     return this.http
@@ -22,5 +24,19 @@ export class UsersService {
     console.error('An error occurred', err);
     return Observable.throw(err.message || err);
   }
+
+  createUser(user){
+    let headers=new HttpHeaders()
+                    .set('content-Type','application/json')
+                    .set('Accept','application/json');
+                    
+    let body=JSON.stringify(user);
+    return this.http.post(this.usersUrl,body,{headers:headers})
+                    .pipe(
+                        catchError(this.handleError)
+                      );
+  }
+
+
 
 }
